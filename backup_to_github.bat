@@ -1,35 +1,64 @@
 
 @echo off
+setlocal
 title Ignition GitHub Backup
 
-cd /d "C:\Users\CarlVenter\OneDrive - Concera\Desktop\Ignition-Projects"
+cd /d "%~dp0"
 
-echo Checking Git repository...
-git status
-
-if errorlevel 1 (
-    echo.
-    echo ERROR: Git repository not found.
-    echo Check whether Git has been initialized.
-    pause
-    exit /b 1
-)
-
+echo ========================================
+echo       IGNITION GITHUB BACKUP
+echo ========================================
 echo.
-echo Adding changed files...
+
+git status --short >nul 2>&1
+if errorlevel 1 goto error
+
+echo Checking for new or changed files...
 git add .
+if errorlevel 1 goto error
+
+git diff --cached --quiet
+if errorlevel 1 goto changes
 
 echo.
-echo Committing changes...
-git diff --cached --quiet
-if errorlevel 1 (
-    git commit -m "Updated Ignition backup"
-)
+echo No new or changed backup files detected.
+echo Your local backups are already saved.
+goto upload
+
+:changes
+echo.
+echo Changes detected!
+echo.
+set /p "project=Enter project name: "
+set /p "comment=Enter comment about changes: "
+
+if not defined project set "project=Ignition"
+if not defined comment set "comment=Updated backup"
+
+git commit -m "%project% - %comment%"
+if errorlevel 1 goto error
+
+:upload
+echo.
+echo Checking GitHub for updates...
+git fetch origin
+if errorlevel 1 goto error
 
 echo.
 echo Uploading to GitHub...
-git push
+git push origin main
+if errorlevel 1 goto error
 
 echo.
-echo Finished.
+echo SUCCESS: Backup sync completed!
+goto finish
+
+:error
+echo.
+echo ERROR: Backup process failed.
+echo Please check the messages above.
+
+:finish
+echo.
 pause
+endlocal
