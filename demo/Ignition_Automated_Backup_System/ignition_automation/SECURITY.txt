@@ -1,0 +1,11 @@
+SECURITY AND SAFETY
+===================
+Gateway backups may contain credentials, certificates, device settings, authentication
+and network configuration. This package never stages .gwbk files in Git.
+Use encrypted, access-controlled local/network backup storage with retention and
+restore tests. A private GitHub repository alone is not sufficient protection for
+Gateway backups. Get explicit company/IT approval for each data destination.
+Git history retains previously committed files even after deletion. Existing
+backup ZIPs in the repository may contain secrets: review and remediate with IT.
+Do not use git push --force to work around conflicts. Do not restore a Gateway
+backup to a live plant without an approved recovery procedure.

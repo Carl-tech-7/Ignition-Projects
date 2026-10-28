@@ -1,0 +1,10 @@
+# Gateway backups are sensitive and large: NEVER commit automatically
+GatewayBackups/
+logs/
+.state/
+*.gwbk
+# Local config and operational metadata
+config.json
+backup_manager.py
+backup_to_github.bat
+install_daily_task.bat
