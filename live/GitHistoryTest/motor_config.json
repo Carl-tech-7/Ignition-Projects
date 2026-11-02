@@ -1,0 +1,15 @@
+
+{
+  "project": "Git History Test",
+  "engineer": "carlambrose019-web",
+  "motor": {
+    "name": "Conveyor Motor 1",
+    "enabled": true,
+    "speed": 75,
+    "mode": "automatic"
+  },
+  "interlocks": {
+    "emergencyStop": false,
+    "overload": false
+  }
+}
