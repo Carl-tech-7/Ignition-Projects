@@ -1,0 +1,8 @@
+{
+  "project": "DashboardTest2026",
+  "engineer": "carlambrose019-web",
+  "motor": "Motor 01",
+  "enabled": true,
+  "speed": 50,
+  "status": "Running"
+}
