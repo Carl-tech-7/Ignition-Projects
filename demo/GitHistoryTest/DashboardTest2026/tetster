@@ -1,0 +1,9 @@
+
+{
+  "project": "MotorControlSystem",
+  "engineer": "carlambrose019-web",
+  "motor": "Motor 01",
+  "enabled": true,
+  "speed": 75,
+  "status": "Running"
+}
