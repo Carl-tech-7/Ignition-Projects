@@ -3,6 +3,6 @@
   "engineer": "carlambrose019-web",
   "motor": "Motor 01",
   "enabled": true,
-  "speed": 50,
+  "speed": 990,
   "status": "Running"
 }
