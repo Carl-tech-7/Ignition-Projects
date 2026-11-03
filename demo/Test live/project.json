@@ -3,5 +3,7 @@
   "description": "",
   "enabled": true,
   "inheritable": false,
-  "parent": ""
+  "parent": "",
+  "speed": 50,
+"speed": 75
 }
