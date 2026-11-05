@@ -3,5 +3,8 @@
   "description": "",
   "enabled": true,
   "inheritable": false,
-  "parent": ""
+  "parent": "",
+  "enabled": true,
+  "speed": 990,
+  "status": "Running"
 }
